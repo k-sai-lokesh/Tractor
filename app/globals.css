@@ -25,12 +25,18 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: 'Poppins', sans-serif;
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -318,15 +324,69 @@ input[type="range"]::-webkit-slider-thumb {
   cursor: pointer;
 }
 
-/* ── Scrollbar ─────────────────────────────────────── */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #f1f1f1; }
-::-webkit-scrollbar-thumb { background: var(--green-light); border-radius: 3px; }
+/* ── Responsive Utilities ─────────────────────────── */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
 
-/* ── Mobile nav ────────────────────────────────────── */
+@media (max-width: 480px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.grid-responsive {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .grid-responsive-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-responsive-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .grid-responsive-4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+.mobile-only { display: none; }
+@media (max-width: 768px) {
+  .mobile-only { display: block; }
+  .desktop-only { display: none; }
+}
+
+/* ── Mobile-specific adjustments ───────────────────── */
 @media (max-width: 768px) {
   .btn-primary, .btn-gold, .btn-outline {
-    padding: 0.65rem 1.25rem;
+    width: 100%;
+    justify-content: center;
+    padding: 0.875rem 1.25rem; /* Ensure >44px height */
     font-size: 0.875rem;
   }
+  
+  .section-heading {
+    font-size: 1.75rem;
+  }
+  
+  .hero-gradient {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .input-field {
+    height: 48px; /* Touch friendly */
+  }
+}
+
+/* ── Prevent horizontal scroll ─────────────────────── */
+html, body {
+  overflow-x: hidden;
+  position: relative;
 }

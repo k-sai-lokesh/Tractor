@@ -98,38 +98,38 @@ export default function TractorCard({ tractor }: Props) {
         </div>
 
         {/* Owner + rating */}
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.85rem" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.85rem", gap: "0.5rem", flexWrap: "wrap" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}>
             <div style={{
               width: 28, height: 28, borderRadius: "50%",
               background: "linear-gradient(135deg, #2D6A4F, #40916C)",
               display: "flex", alignItems: "center", justifyContent: "center",
-              fontSize: "0.7rem", color: "white", fontWeight: 700,
+              fontSize: "0.7rem", color: "white", fontWeight: 700, flexShrink: 0
             }}>
               {tractor.owner.split(" ").map(n => n[0]).join("").slice(0, 2)}
             </div>
-            <span style={{ fontSize: "0.8rem", color: "#374151", fontWeight: 500 }}>{tractor.owner}</span>
+            <span style={{ fontSize: "0.8rem", color: "#1B4332", fontWeight: 600, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", maxWidth: "80px" }}>{tractor.owner}</span>
           </div>
-          <div style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.3rem" }}>
             <StarRating rating={tractor.rating} />
-            <span style={{ fontSize: "0.78rem", color: "#6B7280" }}>({tractor.reviewCount})</span>
+            <span style={{ fontSize: "0.75rem", color: "#6B7280", fontWeight: 600 }}>{tractor.rating}</span>
           </div>
         </div>
 
         {/* Pricing divider */}
         <div style={{ borderTop: "1px solid #F3F4F6", paddingTop: "0.75rem", marginTop: "auto" }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "0.75rem" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: "0.75rem", gap: "0.5rem" }}>
             <div>
-              <span style={{ fontSize: "1.2rem", fontWeight: 800, color: "#2D6A4F" }}>
+              <span style={{ fontSize: "1.15rem", fontWeight: 800, color: "#2D6A4F" }}>
                 ₹{tractor.pricePerHour.toLocaleString("en-IN")}
               </span>
-              <span style={{ fontSize: "0.75rem", color: "#6B7280" }}>/hr</span>
+              <span style={{ fontSize: "0.7rem", color: "#6B7280" }}>/hr</span>
             </div>
             <div style={{ textAlign: "right" }}>
-              <span style={{ fontSize: "1rem", fontWeight: 700, color: "#6B4226" }}>
+              <span style={{ fontSize: "0.95rem", fontWeight: 700, color: "#6B4226" }}>
                 ₹{tractor.pricePerDay.toLocaleString("en-IN")}
               </span>
-              <span style={{ fontSize: "0.75rem", color: "#6B7280" }}>/day</span>
+              <span style={{ fontSize: "0.7rem", color: "#6B7280" }}>/day</span>
             </div>
           </div>
 
@@ -137,12 +137,11 @@ export default function TractorCard({ tractor }: Props) {
             href={`/tractor/${tractor.id}`}
             className="btn-primary"
             style={{
-              display: "flex",
-              justifyContent: "center",
               textDecoration: "none",
-              width: "100%",
               opacity: tractor.available ? 1 : 0.5,
               pointerEvents: tractor.available ? "auto" : "none",
+              width: "100%",
+              justifyContent: "center"
             }}
           >
             <Calendar size={15} />
