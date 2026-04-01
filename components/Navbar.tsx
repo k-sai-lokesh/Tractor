@@ -99,7 +99,7 @@ export default function Navbar() {
             className="hidden md:flex"
           >
             <Phone size={15} />
-            1800-123-4567
+            +91 95023 24184
           </a>
           <Link
             href="/list-tractor"

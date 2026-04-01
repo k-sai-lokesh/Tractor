@@ -123,7 +123,7 @@ export default function PaymentSuccessPage() {
       doc.rect(0, 260, 210, 37, "F");
       doc.setFontSize(9);
       doc.setTextColor(100, 100, 100);
-      doc.text("Thank you for using TractorLease! | support@tractorlease.in | 1800-123-4567", 15, 272);
+      doc.text("Thank you for using TractorLease! | support@tractorlease.in | +91 95023 24184", 15, 272);
       doc.text("This is a computer generated receipt and does not require a signature.", 15, 280);
 
       doc.save(`TractorLease_Receipt_${booking.bookingId}.pdf`);

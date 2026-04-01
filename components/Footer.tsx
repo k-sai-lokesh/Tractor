@@ -85,7 +85,7 @@ export default function Footer() {
             <h4 style={{ fontWeight: 700, fontSize: "1rem", color: "white", marginBottom: "1rem" }}>Contact Us</h4>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
               {[
-                { icon: Phone, text: "1800-123-4567 (Toll Free)" },
+                { icon: Phone, text: "+91 95023 24184" },
                 { icon: Mail, text: "support@tractorlease.in" },
                 { icon: MapPin, text: "Pune, Maharashtra, India" },
               ].map(({ icon: Icon, text }) => (
