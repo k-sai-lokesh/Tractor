@@ -87,7 +87,7 @@ export default function Footer() {
               {[
                 { icon: Phone, text: "+91 95023 24184" },
                 { icon: Mail, text: "support@tractorlease.in" },
-                { icon: MapPin, text: "Pune, Maharashtra, India" },
+                { icon: MapPin, text: "Nellore, Andhra Pradesh, India" },
               ].map(({ icon: Icon, text }) => (
                 <div key={text} style={{ display: "flex", alignItems: "flex-start", gap: "0.65rem" }}>
                   <Icon size={16} style={{ color: "#F4A300", marginTop: "0.1rem", flexShrink: 0 }} />

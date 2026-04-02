@@ -68,7 +68,7 @@ export const tractors: Tractor[] = [
     ],
     availableDays: ["Mon", "Tue", "Wed", "Thu", "Fri"],
     earnings: 18500,
-    location: "Pune, Maharashtra",
+    location: "Nellore, Andhra Pradesh",
     image: "/tractor1.png",
     images: ["/tractor1.png", "/tractor2.png", "/tractor3.png"],
     category: "Tractor",
