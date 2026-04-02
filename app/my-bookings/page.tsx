@@ -84,9 +84,9 @@ export default function MyBookingsPage() {
                 onMouseEnter={e => { e.currentTarget.style.boxShadow = "0 8px 24px rgba(45,106,79,0.12)"; }}
                 onMouseLeave={e => { e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.06)"; }}
               >
-                <div style={{ display: "grid", gridTemplateColumns: "140px 1fr auto", gap: "0" }}>
+                <div className="booking-card-grid">
                   {/* Image */}
-                  <div style={{ position: "relative", height: "100%", minHeight: 140 }}>
+                  <div className="booking-card-image">
                     <Image src={booking.image} alt={booking.tractorModel} fill sizes="140px" style={{ objectFit: "cover" }} />
                   </div>
 
@@ -125,7 +125,7 @@ export default function MyBookingsPage() {
                   </div>
 
                   {/* Actions */}
-                  <div style={{ padding: "1.25rem", display: "flex", flexDirection: "column", gap: "0.5rem", justifyContent: "center", borderLeft: "1px solid #F3F4F6", minWidth: 150 }}>
+                  <div className="booking-card-actions">
                     {booking.status === "paid" && booking.startDate < today && (
                       <button onClick={() => setRatingModal(booking.id)} style={{
                         display: "flex", alignItems: "center", justifyContent: "center", gap: "0.4rem",

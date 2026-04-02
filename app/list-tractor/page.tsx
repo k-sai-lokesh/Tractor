@@ -134,7 +134,7 @@ export default function ListTractorPage() {
           {currentStep === 1 && (
             <div>
               <h2 style={{ fontWeight: 700, fontSize: "1.15rem", color: "#1B4332", marginBottom: "1.5rem" }}>🚜 Tractor Information</h2>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
+              <div className="form-grid-2">
                 {[
                   { label: "Owner Full Name *", key: "ownerName", placeholder: "Rajesh Patil" },
                   { label: "Mobile Number *", key: "mobile", placeholder: "9876543210" },
@@ -189,7 +189,7 @@ export default function ListTractorPage() {
             <div>
               <h2 style={{ fontWeight: 700, fontSize: "1.15rem", color: "#1B4332", marginBottom: "1.5rem" }}>⚙️ Attachments & Pricing</h2>
 
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "2rem" }}>
+              <div className="form-grid-2" style={{ marginBottom: "2rem" }}>
                 <div>
                   <label style={{ fontSize: "0.8rem", fontWeight: 600, color: "#6B7280", display: "block", marginBottom: "0.4rem" }}>Price Per Hour (₹) *</label>
                   <input className="input-field" placeholder="e.g. 350" value={pricePerHour} onChange={e => setPricePerHour(e.target.value)} type="number" min="0" />
@@ -253,7 +253,7 @@ export default function ListTractorPage() {
                 </div>
               </div>
 
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1.5rem" }}>
+              <div className="form-grid-2" style={{ marginBottom: "1.5rem" }}>
                 <div>
                   <label style={{ fontSize: "0.8rem", fontWeight: 600, color: "#6B7280", display: "block", marginBottom: "0.4rem" }}>Start Time</label>
                   <select className="input-field" value={startTime} onChange={e => setStartTime(e.target.value)}>

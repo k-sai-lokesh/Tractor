@@ -90,7 +90,7 @@ export default function CheckoutPage() {
           </div>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "2.5rem", alignItems: "start" }} className="lg:grid-cols-[1fr_380px]">
+        <div style={{ display: "grid", gap: "2.5rem", alignItems: "start" }} className="lg:grid-cols-[1fr_380px]">
           {/* Left — payment form */}
           <div className="fade-in-up">
             {/* Renter info */}
@@ -98,7 +98,7 @@ export default function CheckoutPage() {
               <h3 style={{ fontWeight: 800, fontSize: "1.1rem", color: "#1B4332", marginBottom: "1.5rem", display: "flex", alignItems: "center", gap: "0.5rem" }}>
                 <span style={{ background: "rgba(45,106,79,0.1)", padding: "0.4rem", borderRadius: "0.5rem" }}>👤</span> Personal Details
               </h3>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "1.25rem" }} className="sm:grid-cols-2">
+              <div style={{ display: "grid", gap: "1.25rem" }} className="sm:grid-cols-2">
                 <div>
                   <label style={{ fontSize: "0.75rem", fontWeight: 800, color: "#4B5563", textTransform: "uppercase", letterSpacing: "0.05em", display: "block", marginBottom: "0.5rem" }}>Full Name *</label>
                   <input className="input-field" style={{ height: "52px" }} placeholder="Suresh Kumar" value={renterName} onChange={e => setRenterName(e.target.value)} />
@@ -117,7 +117,7 @@ export default function CheckoutPage() {
               </h3>
 
               {/* Tab buttons */}
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "0.75rem", marginBottom: "2rem" }} className="sm:grid-cols-4">
+              <div className="payment-method-grid">
                 {METHOD_TABS.map(({ id, label, icon: Icon }) => (
                   <button key={id} onClick={() => setPaymentMethod(id)} style={{
                     padding: "1rem 0.5rem", borderRadius: "1rem", border: "2.5px solid",
@@ -138,7 +138,7 @@ export default function CheckoutPage() {
               {/* UPI */}
               {paymentMethod === "upi" && (
                 <div className="fade-in">
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "2rem", alignItems: "start" }} className="sm:grid-cols-[1fr_auto]">
+                  <div style={{ display: "grid", gap: "2rem", alignItems: "start" }} className="sm:grid-cols-[1fr_auto]">
                     <div>
                       <label style={{ fontSize: "0.75rem", fontWeight: 800, color: "#4B5563", textTransform: "uppercase", letterSpacing: "0.05em", display: "block", marginBottom: "0.75rem" }}>Enter UPI ID</label>
                       <input className="input-field" style={{ height: "52px", fontSize: "1.1rem", fontWeight: 600, color: "#111827" }} placeholder="mobile@upi" value={upiId} onChange={e => setUpiId(e.target.value)} />

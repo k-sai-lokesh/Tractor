@@ -174,7 +174,7 @@ export default function ListingsPage() {
 
       {/* Main content */}
       <div className="container" style={{ padding: "3rem 1.5rem" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "2.5rem", alignItems: "start" }} className="md:grid-cols-[260px_1fr]">
+        <div style={{ display: "grid", gap: "2.5rem", alignItems: "start" }} className="md:grid-cols-[260px_1fr]">
           {/* Sidebar (Desktop) */}
           <div className="hidden md:block" style={{ position: "sticky", top: 100 }}>
             <FilterPanel />

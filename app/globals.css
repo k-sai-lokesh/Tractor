@@ -390,3 +390,65 @@ html, body {
   overflow-x: hidden;
   position: relative;
 }
+
+/* ── Category grid (responsive) ────────────────────── */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+@media (min-width: 640px)  { .category-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 768px)  { .category-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 1024px) { .category-grid { grid-template-columns: repeat(7, 1fr); } }
+
+/* ── Payment method tabs (2 → 4 cols) ───────────────── */
+.payment-method-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+@media (min-width: 640px) { .payment-method-grid { grid-template-columns: repeat(4, 1fr); } }
+
+/* ── Booking card (stack → 3-col) ───────────────────── */
+.booking-card-grid { display: grid; grid-template-columns: 1fr; }
+.booking-card-image { position: relative; height: 200px; }
+.booking-card-actions {
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  border-top: 1px solid #F3F4F6;
+}
+@media (min-width: 640px) {
+  .booking-card-grid { grid-template-columns: 140px 1fr auto; }
+  .booking-card-image { height: 100%; min-height: 140px; }
+  .booking-card-actions {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    border-top: none;
+    border-left: 1px solid #F3F4F6;
+    min-width: 140px;
+    padding: 1.25rem;
+  }
+}
+
+/* ── Dashboard main grid (1-col → sidebar layout) ───── */
+.dashboard-main-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+@media (min-width: 1024px) { .dashboard-main-grid { grid-template-columns: 1fr 340px; } }
+
+/* ── Responsive 2-col form grid ─────────────────────── */
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 480px) { .form-grid-2 { grid-template-columns: 1fr 1fr; } }

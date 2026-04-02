@@ -79,7 +79,7 @@ export default function OwnerDashboardPage() {
           ))}
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 340px", gap: "1.5rem", alignItems: "start" }}>
+        <div className="dashboard-main-grid">
           {/* Booking requests */}
           <div>
             <div style={{ background: "white", borderRadius: "1rem", padding: "1.5rem", border: "1px solid #E5E7EB", boxShadow: "0 2px 8px rgba(0,0,0,0.06)", marginBottom: "1.5rem" }}>

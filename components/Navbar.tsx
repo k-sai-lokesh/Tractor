@@ -37,7 +37,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <div style={{ display: "flex", alignItems: "center", gap: "2rem" }} className="hidden md:flex">
+        <div style={{ alignItems: "center", gap: "2rem" }} className="hidden md:flex">
           <Link href="/listings" style={{ color: "#374151", fontWeight: 500, fontSize: "0.95rem", textDecoration: "none", transition: "color 0.2s" }} onMouseEnter={e => (e.currentTarget.style.color = "#2D6A4F")} onMouseLeave={e => (e.currentTarget.style.color = "#374151")}>Browse Tractors</Link>
           <Link href="/list-tractor" style={{ color: "#374151", fontWeight: 500, fontSize: "0.95rem", textDecoration: "none", transition: "color 0.2s" }} onMouseEnter={e => (e.currentTarget.style.color = "#2D6A4F")} onMouseLeave={e => (e.currentTarget.style.color = "#374151")}>List Your Tractor</Link>
           <Link href="/my-bookings" style={{ color: "#374151", fontWeight: 500, fontSize: "0.95rem", textDecoration: "none", transition: "color 0.2s" }} onMouseEnter={e => (e.currentTarget.style.color = "#2D6A4F")} onMouseLeave={e => (e.currentTarget.style.color = "#374151")}>My Bookings</Link>
@@ -46,7 +46,7 @@ export default function Navbar() {
 
         {/* CTA + mobile toggle */}
         <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-          <a href="tel:+919502324184" className="hidden lg:flex" style={{ display: "flex", alignItems: "center", gap: "0.4rem", color: "#2D6A4F", fontWeight: 600, fontSize: "0.875rem", textDecoration: "none" }}>
+          <a href="tel:+919502324184" className="hidden lg:flex" style={{ alignItems: "center", gap: "0.4rem", color: "#2D6A4F", fontWeight: 600, fontSize: "0.875rem", textDecoration: "none" }}>
             <Phone size={15} /> +91 95023 24184
           </a>
           <Link href="/list-tractor" className="btn-primary hidden sm:inline-flex" style={{ padding: "0.55rem 1.25rem", fontSize: "0.875rem", width: "auto" }}>

@@ -43,7 +43,7 @@ export default function HomePage() {
         <div style={{ position: "absolute", bottom: "15%", left: "3%", width: 200, height: 200, borderRadius: "50%", background: "rgba(82,183,136,0.15)", filter: "blur(30px)" }} />
         
         <div className="container" style={{ position: "relative" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "3rem", alignItems: "center" }} className="lg:grid-cols-2">
+          <div style={{ display: "grid", gap: "3rem", alignItems: "center" }} className="lg:grid-cols-2">
             <div className="fade-in-up">
               <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", background: "rgba(244,163,0,0.15)", border: "1px solid rgba(244,163,0,0.3)", borderRadius: "999px", padding: "0.4rem 1rem", marginBottom: "1.5rem" }}>
                 <Wheat size={14} color="#F4A300" />
@@ -57,7 +57,7 @@ export default function HomePage() {
               </p>
               
               <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-                <Link href="/listings" className="btn-gold" style={{ width: "auto", minWidth: "180px" }}>
+                <Link href="/listings" className="btn-gold" style={{ minWidth: "180px" }}>
                   <Search size={20} /> Find a Tractor
                 </Link>
                 <Link href="/list-tractor" style={{ padding: "0.875rem 2rem", borderRadius: "0.75rem", border: "2px solid rgba(255,255,255,0.5)", color: "white", fontWeight: 700, fontSize: "1rem", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.5rem", background: "rgba(255,255,255,0.1)", backdropFilter: "blur(8px)" }} className="hover:bg-white/20 transition-all w-full sm:w-auto justify-center">
@@ -92,7 +92,7 @@ export default function HomePage() {
 
           {/* Responsive Search Box */}
           <div style={{ background: "white", borderRadius: "1.5rem", padding: "1.5rem", marginTop: "4rem", boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)", border: "1px solid #E5E7EB" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "1.25rem" }} className="md:grid-cols-4 md:items-end">
+            <div style={{ display: "grid", gap: "1.25rem" }} className="md:grid-cols-4 md:items-end">
               <div style={{ flex: 1 }}>
                 <label style={{ fontSize: "0.75rem", fontWeight: 700, color: "#4B5563", textTransform: "uppercase", letterSpacing: "0.05em", display: "block", marginBottom: "0.5rem" }}>Location</label>
                 <div style={{ position: "relative" }}>
@@ -126,7 +126,7 @@ export default function HomePage() {
             <h2 className="section-heading">Equipment for Every Need</h2>
             <p className="section-subheading">Select from our wide range of farming tools</p>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "1rem" }} className="sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7">
+          <div className="category-grid">
             {CATEGORIES.map((cat) => (
               <Link key={cat.name} href={"/listings?type=" + cat.name} style={{ textDecoration: "none" }}>
                 <div style={{ background: "white", border: "1px solid #E5E7EB", borderRadius: "1.25rem", padding: "1.5rem 1rem", textAlign: "center", cursor: "pointer", transition: "all 0.3s", boxShadow: "0 4px 6px rgba(0,0,0,0.02)" }} className="hover:border-[#2D6A4F] hover:shadow-lg hover:-translate-y-1">
@@ -192,7 +192,7 @@ export default function HomePage() {
                 Join 12,000+ owners and list your equipment for free. Earn up to ₹45,000 extra per month by leasing your idle assets.
               </p>
               <div style={{ display: "flex", gap: "1.25rem", flexWrap: "wrap", justifyContent: "center" }}>
-                <Link href="/list-tractor" className="btn-gold" style={{ width: "auto", padding: "1rem 2.5rem" }}>List Your Tractor Free <ArrowRight size={20} /></Link>
+                <Link href="/list-tractor" className="btn-gold" style={{ padding: "1rem 2.5rem" }}>List Your Tractor Free <ArrowRight size={20} /></Link>
                 <Link href="/listings" style={{ padding: "1rem 2.5rem", borderRadius: "1rem", border: "2px solid rgba(255,255,255,0.3)", color: "white", fontWeight: 700, textDecoration: "none" }} className="hover:bg-white/10 transition-all font-semibold">Browse Listings</Link>
               </div>
             </div>

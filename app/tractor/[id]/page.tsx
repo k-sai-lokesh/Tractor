@@ -84,7 +84,7 @@ export default function TractorDetailPage({ params }: { params: Promise<{ id: st
       {/* Photo header carousel */}
       <div style={{ background: "#1B4332", padding: "2rem 0", position: "relative" }}>
         <div className="container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "1.5rem" }} className="lg:grid-cols-[1fr_auto]">
+          <div style={{ display: "grid", gap: "1.5rem" }} className="lg:grid-cols-[1fr_auto]">
             {/* Main image */}
             <div style={{ position: "relative", height: "clamp(250px, 50vh, 480px)", borderRadius: "1.5rem", overflow: "hidden", background: "#0D2119", boxShadow: "0 20px 40px rgba(0,0,0,0.4)", border: "1px solid rgba(255,255,255,0.1)" }}>
               <Image src={tractor.images[activeImage]} alt={tractor.model} fill sizes="(max-width: 768px) 100vw, 800px" style={{ objectFit: "cover" }} priority />
@@ -121,7 +121,7 @@ export default function TractorDetailPage({ params }: { params: Promise<{ id: st
       </div>
 
       <div className="container" style={{ padding: "3rem 1.5rem" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "3rem", alignItems: "start" }} className="lg:grid-cols-[1fr_380px]">
+        <div style={{ display: "grid", gap: "3rem", alignItems: "start" }} className="lg:grid-cols-[1fr_380px]">
           {/* Left — tractor details */}
           <div className="fade-in-up">
             {/* Header */}
@@ -161,7 +161,7 @@ export default function TractorDetailPage({ params }: { params: Promise<{ id: st
               <h2 style={{ fontWeight: 800, fontSize: "1.25rem", color: "#1B4332", marginBottom: "1.5rem", display: "flex", alignItems: "center", gap: "0.6rem" }}>
                 <Zap size={20} color="#F4A300" fill="#F4A300" /> Key Specifications
               </h2>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "1rem" }} className="sm:grid-cols-2">
+              <div style={{ display: "grid", gap: "1rem" }} className="sm:grid-cols-2">
                 {[
                   { label: "Horsepower", value: `${tractor.hp} HP`, icon: Zap },
                   { label: "Manufacturing Year", value: tractor.year, icon: Calendar },
