@@ -56,20 +56,20 @@ export default function HomePage() {
                 Connect with local tractor owners and lease premium farm equipment at the best rates across India. Fully insured and secure.
               </p>
               
-              <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-                <Link href="/listings" className="btn-gold" style={{ minWidth: "180px" }}>
+              <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", justifyContent: "center" }} className="md:justify-start">
+                <Link href="/listings" className="btn-gold sm:!w-auto" style={{ minWidth: "180px", flex: "1 1 auto" }}>
                   <Search size={20} /> Find a Tractor
                 </Link>
-                <Link href="/list-tractor" style={{ padding: "0.875rem 2rem", borderRadius: "0.75rem", border: "2px solid rgba(255,255,255,0.5)", color: "white", fontWeight: 700, fontSize: "1rem", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.5rem", background: "rgba(255,255,255,0.1)", backdropFilter: "blur(8px)" }} className="hover:bg-white/20 transition-all w-full sm:w-auto justify-center">
+                <Link href="/list-tractor" className="hover:bg-white/20 transition-all sm:!w-auto justify-center" style={{ padding: "0.875rem 2rem", borderRadius: "0.75rem", border: "2px solid rgba(255,255,255,0.5)", color: "white", fontWeight: 700, fontSize: "1rem", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.5rem", background: "rgba(255,255,255,0.1)", backdropFilter: "blur(8px)", flex: "1 1 auto" }}>
                   List Yours <ArrowRight size={18} />
                 </Link>
               </div>
 
-              <div style={{ display: "flex", gap: "2.5rem", flexWrap: "wrap", marginTop: "3rem" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.5rem", marginTop: "3rem", textAlign: "center" }} className="md:text-left md:flex md:gap-10">
                 {[{ val: "12K+", label: "Tractors" }, { val: "85K+", label: "Farmers" }, { val: "22", label: "States" }].map(({ val, label }) => (
                   <div key={label}>
-                    <div style={{ fontSize: "1.75rem", fontWeight: 900, color: "#F4A300" }}>{val}</div>
-                    <div style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.7)", fontWeight: 500 }}>{label}</div>
+                    <div style={{ fontSize: "clamp(1.25rem, 4vw, 1.75rem)", fontWeight: 900, color: "#F4A300" }}>{val}</div>
+                    <div style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.7)", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.05em" }}>{label}</div>
                   </div>
                 ))}
               </div>

@@ -25,13 +25,13 @@ export default function Navbar() {
         boxShadow: "0 2px 16px rgba(45,106,79,0.08)",
       }}
     >
-      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 1.5rem", display: "flex", alignItems: "center", justifyContent: "space-between", height: 68 }} className="container">
+      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 1rem", display: "flex", alignItems: "center", justifyContent: "space-between", height: 68 }} className="container sm:px-6">
         {/* Logo */}
-        <Link href="/" style={{ display: "flex", alignItems: "center", gap: "0.6rem", textDecoration: "none" }}>
-          <div style={{ background: "linear-gradient(135deg, #2D6A4F, #40916C)", borderRadius: "0.625rem", padding: "0.45rem", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <Tractor size={22} color="white" />
+        <Link href="/" style={{ display: "flex", alignItems: "center", gap: "0.5rem", textDecoration: "none", flexShrink: 0 }}>
+          <div style={{ background: "linear-gradient(135deg, #2D6A4F, #40916C)", borderRadius: "0.5rem", padding: "0.4rem", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <Tractor size={20} color="white" />
           </div>
-          <span style={{ fontWeight: 800, fontSize: "1.25rem", color: "#1B4332", letterSpacing: "-0.02em" }}>
+          <span style={{ fontWeight: 800, fontSize: "1.1rem", color: "#1B4332", letterSpacing: "-0.02em" }} className="sm:text-xl">
             Tractor<span style={{ color: "#F4A300" }}>Lease</span>
           </span>
         </Link>
@@ -45,15 +45,15 @@ export default function Navbar() {
         </div>
 
         {/* CTA + mobile toggle */}
-        <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }} className="sm:gap-3">
           <a href="tel:+919502324184" className="hidden lg:flex" style={{ alignItems: "center", gap: "0.4rem", color: "#2D6A4F", fontWeight: 600, fontSize: "0.875rem", textDecoration: "none" }}>
             <Phone size={15} /> +91 95023 24184
           </a>
-          <Link href="/list-tractor" className="btn-primary hidden sm:inline-flex" style={{ padding: "0.55rem 1.25rem", fontSize: "0.875rem", width: "auto" }}>
+          <Link href="/list-tractor" className="btn-primary !hidden sm:!inline-flex" style={{ padding: "0.5rem 1rem", fontSize: "0.8rem", width: "auto" }}>
             + List Tractor
           </Link>
-          <button onClick={() => setMobileOpen(!mobileOpen)} className="md:hidden" aria-label="Toggle Menu" style={{ background: "none", border: "none", cursor: "pointer", color: "#2D6A4F", padding: "0.5rem" }}>
-            {mobileOpen ? <X size={28} /> : <Menu size={28} />}
+          <button onClick={() => setMobileOpen(!mobileOpen)} className="md:hidden" aria-label="Toggle Menu" style={{ background: "none", border: "none", cursor: "pointer", color: "#2D6A4F", padding: "0.4rem" }}>
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>

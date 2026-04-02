@@ -113,27 +113,28 @@ export default function OwnerDashboardPage() {
                         )}
                       </div>
 
-                      <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem" }}>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem", width: "100%" }} className="sm:w-auto">
                         {req.status === "pending" ? (
                           <>
                             <button onClick={() => handleAccept(req.id)} style={{
-                              display: "flex", alignItems: "center", gap: "0.4rem",
-                              padding: "0.5rem 1rem", borderRadius: "0.5rem", border: "none",
-                              background: "#2D6A4F", color: "white", fontWeight: 600, fontSize: "0.8rem", cursor: "pointer", fontFamily: "inherit",
+                              display: "flex", alignItems: "center", justifyContent: "center", gap: "0.4rem",
+                              padding: "0.6rem 1rem", borderRadius: "0.5rem", border: "none",
+                              background: "#2D6A4F", color: "white", fontWeight: 600, fontSize: "0.85rem", cursor: "pointer", fontFamily: "inherit",
                             }}>
-                              <CheckCircle size={14} /> Accept
+                              <CheckCircle size={14} /> Accept Request
                             </button>
                             <button onClick={() => handleDecline(req.id)} style={{
-                              display: "flex", alignItems: "center", gap: "0.4rem",
-                              padding: "0.5rem 1rem", borderRadius: "0.5rem", border: "1px solid #FCA5A5",
-                              background: "white", color: "#991B1B", fontWeight: 600, fontSize: "0.8rem", cursor: "pointer", fontFamily: "inherit",
+                              display: "flex", alignItems: "center", justifyContent: "center", gap: "0.4rem",
+                              padding: "0.6rem 1rem", borderRadius: "0.5rem", border: "1px solid #FCA5A5",
+                              background: "white", color: "#991B1B", fontWeight: 600, fontSize: "0.85rem", cursor: "pointer", fontFamily: "inherit",
                             }}>
                               <XCircle size={14} /> Decline
                             </button>
                           </>
                         ) : (
                           <span style={{
-                            padding: "0.4rem 0.85rem", borderRadius: "999px", fontSize: "0.8rem", fontWeight: 700,
+                            padding: "0.5rem 1rem", borderRadius: "999px", fontSize: "0.85rem", fontWeight: 700,
+                            textAlign: "center",
                             background: req.status === "accepted" ? "#D1FAE5" : "#FEE2E2",
                             color: req.status === "accepted" ? "#065F46" : "#991B1B",
                           }}>

@@ -311,7 +311,7 @@ export default function CheckoutPage() {
 
               <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem", marginBottom: "1.5rem", padding: "0 0.5rem" }}>
                 {[
-                  { label: "Rental Date", value: booking.selectedDate || "Select Date", icon: Calendar },
+                  { label: "Rental Date", value: booking.selectedDate ? new Date(booking.selectedDate).toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" }) : "Select Date", icon: Calendar },
                   { label: "Duration", value: booking.durationType === "hours" ? `${booking.hours} hours` : `${booking.days} days`, icon: Clock },
                   ...(booking.selectedAttachments.length > 0 ? [{ label: "Equipment", value: booking.selectedAttachments.map(a => a.name).join(", "), icon: Tag }] : []),
                 ].map(({ label, value, icon: Icon }) => (
