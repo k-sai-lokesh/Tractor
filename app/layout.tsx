@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { BookingProvider } from "@/lib/bookingStore";
+import AuthProvider from "@/components/providers/AuthProvider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -32,11 +33,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${poppins.variable} scroll-smooth`}>
       <body className="min-h-screen flex flex-col" style={{ fontFamily: "'Poppins', sans-serif" }}>
-        <BookingProvider>
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </BookingProvider>
+        <AuthProvider>
+          <BookingProvider>
+            <Navbar />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </BookingProvider>
+        </AuthProvider>
       </body>
     </html>
   );
