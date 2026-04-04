@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { useBooking } from "@/lib/bookingStore";
 import { generateBookingId } from "@/lib/pricing";
+import { createBooking } from "@/lib/actions/bookingActions";
 
 declare global {
   interface Window {
@@ -61,13 +62,34 @@ export default function CheckoutPage() {
   const handlePayment = async () => {
     if (!renterName || !renterMobile) { alert("Please enter your name and mobile number."); return; }
     setProcessing(true);
-    const bookingId = generateBookingId();
+    
+    try {
+      const data = {
+        tractorId: booking.tractorId,
+        startDate: booking.selectedDate,
+        startTime: "06:00 AM", // Default for now
+        duration: booking.durationType === "hours" ? booking.hours : booking.days,
+        durationType: booking.durationType as any,
+        grandTotal: booking.grandTotal,
+        attachments: booking.selectedAttachments.map((a: any) => a.name),
+      };
 
-    // Simulate Razorpay / payment flow
-    setTimeout(() => {
-      setBooking({ bookingId, renterName, renterMobile, paymentId: `pay_${Math.random().toString(36).substr(2,10).toUpperCase()}` });
+      const result = await createBooking(data);
+      
+      setBooking({ 
+        bookingId: result.id, 
+        renterName, 
+        renterMobile, 
+        paymentId: `pay_${Math.random().toString(36).substr(2,10).toUpperCase()}` 
+      });
+      
       router.push("/payment-success");
-    }, 2200);
+    } catch (err) {
+      console.error(err);
+      alert("Booking failed. Please try again.");
+    } finally {
+      setProcessing(false);
+    }
   };
 
   const totalAmount = booking.grandTotal;

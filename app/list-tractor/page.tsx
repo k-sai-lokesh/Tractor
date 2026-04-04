@@ -6,6 +6,7 @@ import {
   User, Camera, Plus, Minus, X, CheckCircle,
   ChevronRight, ChevronLeft, Upload, Tractor,
 } from "lucide-react";
+import { createTractor } from "@/lib/actions/tractorActions";
 
 const STEPS = [
   { step: 1, title: "Tractor Info" },
@@ -24,6 +25,7 @@ export default function ListTractorPage() {
   const router = useRouter();
   const [currentStep, setCurrentStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Step 1
   const [tractorInfo, setTractorInfo] = useState({
@@ -59,8 +61,34 @@ export default function ListTractorPage() {
     setAttachments(prev => prev.map((a, idx) => idx === i ? { ...a, [field]: val } : a));
   };
 
-  const handleSubmit = () => {
-    setTimeout(() => setSubmitted(true), 1200);
+  const handleSubmit = async () => {
+    setIsSubmitting(true);
+    try {
+      const data = {
+        brand: tractorInfo.brand,
+        model: tractorInfo.model,
+        year: tractorInfo.year,
+        hp: tractorInfo.hp,
+        numberPlate: tractorInfo.plate,
+        pricePerHour: pricePerHour,
+        pricePerDay: pricePerDay,
+        availableTime: `${startTime} – ${endTime}`,
+        description: tractorInfo.description,
+        attachments: attachments.filter(a => a.name && a.pricePerHour).map(a => ({
+          name: a.name,
+          pricePerHour: a.pricePerHour
+        })),
+        image: "/tractor1.png", // Default for now
+      };
+      
+      await createTractor(data);
+      setSubmitted(true);
+    } catch (err) {
+      console.error(err);
+      alert("Failed to create listing. Please check your inputs.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (submitted) {

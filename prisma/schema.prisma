@@ -16,6 +16,8 @@ model User {
   password      String?
   accounts      Account[]
   sessions      Session[]
+  tractors      Tractor[]
+  bookings      Booking[]
   
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -54,4 +56,74 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model Tractor {
+  id            String       @id @default(cuid())
+  ownerId       String
+  owner         User         @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  model         String
+  brand         String
+  numberPlate   String       @unique
+  year          Int
+  hp            Int
+  rating        Float        @default(0)
+  reviewCount   Int          @default(0)
+  pricePerHour  Int
+  pricePerDay   Int
+  availableTime String
+  location      String
+  image         String
+  images        String       // JSON stringified array
+  category      String
+  description   String
+  available     Boolean      @default(true)
+  attachments   Attachment[]
+  reviews       Review[]
+  bookings      Booking[]
+  
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+}
+
+model Attachment {
+  id           String  @id @default(cuid())
+  tractorId    String
+  tractor      Tractor @relation(fields: [tractorId], references: [id], onDelete: Cascade)
+  name         String
+  pricePerHour Int
+}
+
+model Review {
+  id         String   @id @default(cuid())
+  tractorId  String
+  tractor    Tractor  @relation(fields: [tractorId], references: [id], onDelete: Cascade)
+  renterName String
+  rating     Int
+  comment    String
+  date       String
+  createdAt  DateTime @default(now())
+}
+
+model Booking {
+  id              String   @id @default(cuid())
+  tractorId       String
+  tractor         Tractor  @relation(fields: [tractorId], references: [id], onDelete: Cascade)
+  renterId        String
+  renter          User     @relation(fields: [renterId], references: [id], onDelete: Cascade)
+  startDate       String
+  endDate         String
+  startTime       String?
+  endTime         String?
+  duration        Int
+  durationType    String   // "hours" or "days"
+  attachments     String   // JSON stringified array of names
+  baseRent        Float
+  attachmentTotal Float
+  platformFee     Float
+  gst             Float
+  grandTotal      Float
+  status          String   // "pending", "accepted", "declined", "paid", "cancelled"
+  paymentId       String?
+  bookedAt        DateTime @default(now())
 }
