@@ -67,7 +67,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto p-6 glass-card fade-in-up">
+    <div className="w-full max-w-md mx-auto px-8 py-10 glass-card fade-in-up shadow-2xl border border-white/20">
       <div className="text-center mb-8">
         <h1 className="section-heading mb-2">
           {mode === "login" ? "Welcome Back" : "Create Account"}
@@ -79,7 +79,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
         </p>
       </div>
 
-      <div className="space-y-4 mb-8">
+      <div className="flex flex-col gap-3 mb-10">
         {/* Google Button */}
         <button 
           onClick={() => handleSocialLogin("google")}
@@ -121,13 +121,12 @@ export default function AuthForm({ mode }: AuthFormProps) {
         </button>
       </div>
 
-      <div className="relative mb-8">
-        <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-gray-200"></div>
-        </div>
-        <div className="relative flex justify-center text-sm">
-          <span className="px-2 bg-cream text-gray-500 uppercase tracking-wider font-semibold">Or continue with email</span>
-        </div>
+      <div className="flex items-center gap-4 mb-10 mt-2">
+        <div className="h-[1px] flex-1 bg-gray-200/60" />
+        <span className="text-[10px] uppercase tracking-[0.2em] font-black text-gray-400 whitespace-nowrap bg-white px-2">
+          Or continue with email
+        </span>
+        <div className="h-[1px] flex-1 bg-gray-200/60" />
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-5">
@@ -147,7 +146,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
                 type="text" 
                 required 
                 placeholder="John Doe"
-                className="input-field pl-10"
+                className="input-field !pl-12"
               />
             </div>
           </div>
@@ -162,7 +161,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
               type="email" 
               required 
               placeholder="name@example.com"
-              className="input-field pl-10"
+              className="input-field !pl-12"
             />
           </div>
         </div>
@@ -183,7 +182,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
               type={showPassword ? "text" : "password"} 
               required 
               placeholder="••••••••"
-              className="input-field pl-10 pr-10"
+              className="input-field !pl-12 !pr-12"
             />
             <button 
               type="button"
@@ -195,13 +194,15 @@ export default function AuthForm({ mode }: AuthFormProps) {
           </div>
         </div>
 
-        <div className="flex items-center space-x-2 ml-1 cursor-pointer group">
-          <input 
-            type="checkbox" 
-            id="remember" 
-            className="w-4 h-4 rounded border-gray-300 text-green focus:ring-green cursor-pointer"
-          />
-          <label htmlFor="remember" className="text-sm text-gray-600 cursor-pointer group-hover:text-gray-900 transition-colors">
+        <div className="flex items-center gap-3 ml-1 cursor-pointer group">
+          <div className="relative flex items-center h-5">
+            <input 
+              type="checkbox" 
+              id="remember" 
+              className="w-4.5 h-4.5 rounded border-gray-300 text-green focus:ring-green cursor-pointer transition-all"
+            />
+          </div>
+          <label htmlFor="remember" className="text-sm font-medium text-gray-600 cursor-pointer group-hover:text-gray-900 transition-colors">
             Remember me
           </label>
         </div>
