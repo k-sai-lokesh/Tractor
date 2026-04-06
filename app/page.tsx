@@ -100,11 +100,11 @@ export default function HomePage() {
                   <input className="input-field" style={{ paddingLeft: "2.5rem" }} placeholder="Village, City..." value={searchLocation} onChange={e => setSearchLocation(e.target.value)} />
                 </div>
               </div>
-              <div className="md:border-l md:pl-5">
+              <div className="md:pl-5">
                 <label style={{ fontSize: "0.75rem", fontWeight: 700, color: "#4B5563", textTransform: "uppercase", letterSpacing: "0.05em", display: "block", marginBottom: "0.5rem" }}>Booking Date</label>
                 <input type="date" className="input-field" value={searchDate} onChange={e => setSearchDate(e.target.value)} />
               </div>
-              <div className="md:border-l md:pl-5">
+              <div className="md:pl-5">
                 <label style={{ fontSize: "0.75rem", fontWeight: 700, color: "#4B5563", textTransform: "uppercase", letterSpacing: "0.05em", display: "block", marginBottom: "0.5rem" }}>Equipment</label>
                 <select className="input-field" value={searchType} onChange={e => setSearchType(e.target.value)}>
                   <option value="">All Equipment</option>
